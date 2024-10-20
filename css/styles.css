@@ -1,0 +1,327 @@
+/* Importing the retro font */
+@import url('https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap');
+
+/* Video background */
+.video-background {
+    position: fixed; /* Fix the video to the background */
+    top: 0;
+    left: 0;
+    width: 100%; /* Full width */
+    height: 100%; /* Full height */
+    overflow: hidden; /* Hide overflow */
+    z-index: -1; /* Ensure the video stays behind other content */
+}
+
+.video-background video {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%; /* Full width */
+    height: 100%; /* Full height */
+    object-fit: cover; /* Cover the entire background */
+}
+
+/* General body styling for both pages */
+body {
+    display: flex;
+    flex-direction: column; /* Align items in a column to handle header and social icons */
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+    background-color: black; /* Default to black background for 404 page */
+    font-family: 'Press Start 2P', cursive; /* Retro font */
+    color: white; /* White text color */
+    position: relative; /* Ensure the body positions correctly */
+    overflow: hidden; /* Hide any overflow */
+    text-align: center; /* Center text alignment */
+}
+
+/* Styling for the text link on the main page */
+.enter-text {
+    font-size: 28px; /* Increased font size by 20% */
+    color: white; /* White text color */
+    text-decoration: none;
+    font-weight: bold; /* Bold text */
+    text-transform: uppercase; /* Uppercase text */
+    position: relative; /* Required for positioning effects */
+    padding: 10px; /* Padding to give space for the glow effect */
+    display: inline-block; /* Ensure padding and glow work well */
+    text-shadow: 
+        0 0 5px rgba(255, 255, 255, 0.8),  /* Slightly blurred glow effect */
+        0 0 10px rgba(255, 255, 255, 0.6), /* Slightly larger glow effect */
+        0 0 15px rgba(255, 255, 255, 0.4), /* Larger glow effect */
+        0 0 20px rgba(255, 255, 255, 0.3); /* Even larger glow effect */
+    transition: text-shadow 0.3s ease; /* Smooth transition for glow effect */
+}
+
+.enter-text:hover {
+    text-shadow: 
+        0 0 10px rgba(255, 255, 255, 0.9),  /* More intense glow effect */
+        0 0 20px rgba(255, 255, 255, 0.8), /* Larger intense glow effect */
+        0 0 30px rgba(255, 255, 255, 0.7), /* Even larger intense glow effect */
+        0 0 40px rgba(255, 255, 255, 0.5); /* Maximum glow effect */
+}
+
+/* Styling for the social media icons page */
+header {
+    background: none; /* Remove background */
+    color: #fff; /* White text color */
+    padding: 1em;
+    text-align: center;
+    margin-bottom: 1em; /* Reduced space below the header */
+}
+
+.header-text {
+    font-size: 36px; /* Increase font size */
+    color: white; /* White text color */
+    text-decoration: none;
+    font-weight: bold; /* Bold text */
+    text-transform: uppercase; /* Uppercase text */
+    position: relative; /* Required for positioning effects */
+    padding: 10px; /* Padding to give space for the glow effect */
+    display: inline-block; /* Ensure padding and glow work well */
+    text-shadow: 
+        0 0 5px rgba(255, 255, 255, 0.8),  /* Slightly blurred glow effect */
+        0 0 10px rgba(255, 255, 255, 0.6), /* Slightly larger glow effect */
+        0 0 15px rgba(255, 255, 255, 0.4), /* Larger glow effect */
+        0 0 20px rgba(255, 255, 255, 0.3); /* Even larger glow effect */
+    transition: text-shadow 0.3s ease; /* Smooth transition for glow effect */
+}
+
+.header-text:hover {
+    text-shadow: 
+        0 0 10px rgba(255, 255, 255, 0.9),  /* More intense glow effect */
+        0 0 20px rgba(255, 255, 255, 0.8), /* Larger intense glow effect */
+        0 0 30px rgba(255, 255, 255, 0.7), /* Even larger intense glow effect */
+        0 0 40px rgba(255, 255, 255, 0.5); /* Maximum glow effect */
+}
+
+/* Social media icons styling */
+.social-media {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    margin-top: 20px; /* Space above social media icons */
+    position: relative; /* For positioning tooltips */
+}
+
+.social-icon {
+    color: white; /* White color for icons */
+    font-size: 2.5em; /* Icon size */
+    margin: 0 15px; /* Space between icons */
+    transition: color 0.3s ease; /* Smooth transition for color change */
+    position: relative; /* For tooltip positioning */
+}
+
+/* Tooltip container */
+.social-icon::before {
+    content: attr(data-tooltip);
+    position: absolute;
+    bottom: 40px; /* Positioning the tooltip above the icon */
+    left: 50%;
+    transform: translateX(-50%);
+    background-color: black; /* Black background for the tooltip */
+    color: white; /* White text color */
+    padding: 5px 10px;
+    font-size: 12px;
+    border-radius: 5px;
+    white-space: nowrap; /* Prevent text from wrapping */
+    font-family: 'Press Start 2P', cursive; /* Retro font */
+    text-transform: uppercase; /* Make text uppercase */
+    opacity: 0; /* Initially hidden */
+    visibility: hidden; /* Initially hidden */
+    transition: opacity 0.3s ease, visibility 0.3s ease; /* Smooth transition */
+    z-index: 1;
+}
+
+/* Show tooltip on hover */
+.social-icon:hover::before {
+    opacity: 1;
+    visibility: visible;
+}
+
+.social-icon:hover {
+    color: #ffffff; /* Highlight color on hover */
+}
+
+/* Home icon styles */
+.home-icon {
+    position: fixed;
+    bottom: 20px; /* Distance from the bottom of the viewport */
+    left: 50%; /* Center horizontally */
+    transform: translateX(-50%); /* Center horizontally */
+    font-size: 2em; /* Size of the icon */
+    color: white; /* White color for the icon */
+    background: none; /* Remove the black circle background */
+    border: none; /* Remove border */
+    padding: 10px; /* Space around the icon */
+    text-decoration: none; /* Remove underline from link */
+    transition: color 0.3s ease, text-shadow 0.3s ease; /* Smooth transition effects */
+    text-shadow: 0 0 10px rgba(255, 255, 255, 0.8); /* White glow effect around the icon */
+}
+
+/* Hover effect for home icon */
+.home-icon:hover {
+    color: white; /* Keep icon color white on hover */
+    text-shadow: 0 0 15px rgba(255, 255, 255, 1); /* Intense white glow effect on hover */
+}
+
+/* Music control button styles */
+.music-control {
+    position: fixed;
+    bottom: 20px; /* Distance from the bottom of the viewport */
+    right: 20px; /* Distance from the right of the viewport */
+    font-size: 2em; /* Size of the icon */
+    color: white; /* White color for the icon */
+    background: none; /* Remove any background */
+    border: none; /* Remove border */
+    padding: 10px; /* Space around the icon */
+    cursor: pointer; /* Pointer cursor on hover */
+    transition: color 0.3s ease, text-shadow 0.3s ease; /* Smooth transition effects */
+    text-shadow: 0 0 10px rgba(255, 255, 255, 0.8); /* White glow effect */
+}
+
+/* Hover effect for music control icon */
+.music-control:hover {
+    color: white; /* Keep icon color white on hover */
+    text-shadow: 0 0 15px rgba(255, 255, 255, 1); /* Intense white glow effect on hover */
+}
+
+/* Hide volume up icon by default */
+.music-control .fa-volume-up {
+    display: none;
+}
+
+/* Hide volume mute icon by default */
+.music-control .fa-volume-mute {
+    display: none;
+}
+
+/* Show volume up icon when music is on */
+#background-music:not([data-muted]) ~ .music-control .fa-volume-up {
+    display: inline;
+}
+
+/* Show volume mute icon when music is off */
+#background-music[data-muted] ~ .music-control .fa-volume-mute {
+    display: inline;
+}
+
+/* 404 Page Specific Styles */
+.not-found {
+    font-size: 96px; /* Font size for 404 text */
+    margin: 20px 0;
+}
+
+.message {
+    font-size: 24px; /* Font size for message text */
+    margin: 20px 0;
+    text-transform: uppercase; /* Uppercase text */
+    text-shadow: 
+        0 0 5px rgba(255, 255, 255, 0.8), 
+        0 0 10px rgba(255, 255, 255, 0.6), 
+        0 0 15px rgba(255, 255, 255, 0.4), 
+        0 0 20px rgba(255, 255, 255, 0.3);
+}
+
+.video-container {
+    width: 550px; /* Adjusted width */
+    height: 600px; /* Adjusted height */
+    position: relative;
+    margin: 20px auto; /* Center horizontally and add margin */
+    text-align: center; /* Center text inside the video container */
+}
+
+.video-container video {
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* Ensure the video covers the container */
+    border-radius: 10px; /* Rounded corners */
+}
+
+/* Styling for the home link */
+.home-link {
+    font-size: 18px; /* Font size for home link */
+    color: #ffcc00; /* Color for home link */
+    padding: 10px 20px; /* Padding around the link */
+    border-radius: 5px; /* Rounded corners */
+    text-decoration: none; /* Remove underline from the link */
+    transition: background 0.3s ease, color 0.3s ease;
+}
+
+.home-link:hover {
+    background: #ffcc00; /* Background color on hover */
+    color: black; /* Text color on hover */
+}
+
+/* Image upload page specific styles */
+.upload-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 20px;
+}
+
+.file-upload-label {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background: #222;
+    padding: 20px;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: background 0.3s ease;
+}
+
+.file-upload-label:hover {
+    background: #333;
+}
+
+.file-upload-text {
+    font-size: 18px;
+    color: #fff;
+    margin-bottom: 10px;
+}
+
+input[type="file"] {
+    display: none; /* Hide the default file input */
+}
+
+.submit-button {
+    background: #ffcc00;
+    color: black;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    font-size: 18px;
+    cursor: pointer;
+    margin-top: 20px;
+    transition: background 0.3s ease, color 0.3s ease;
+}
+
+.submit-button:hover {
+    background: #e6b800;
+    color: white;
+}
+
+/* Responsive adjustments */
+@media (max-width: 600px) {
+    .enter-text {
+        font-size: 24px; /* Adjusted for responsiveness */
+    }
+
+    .header-text {
+        font-size: 28px; /* Smaller font size on small screens */
+    }
+
+    .social-icon {
+        font-size: 1.5em; /* Smaller icons on small screens */
+        margin: 0 10px;
+    }
+
+    .video-container {
+        width: 80%; /* Make video container responsive */
+        height: auto; /* Auto height to maintain aspect ratio */
+    }
+}
