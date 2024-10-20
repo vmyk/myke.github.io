@@ -1,41 +1,69 @@
 /* Importing the retro font */
 @import url('https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap');
 
-/* Video background */
-.video-background {
-    position: fixed; /* Fix the video to the background */
-    top: 0;
-    left: 0;
-    width: 100%; /* Full width */
-    height: 100%; /* Full height */
-    overflow: hidden; /* Hide overflow */
-    z-index: -1; /* Ensure the video stays behind other content */
-}
 
-.video-background video {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%; /* Full width */
-    height: 100%; /* Full height */
-    object-fit: cover; /* Cover the entire background */
-}
-
-/* General body styling for both pages */
+/* Y2K-style gradient background */
 body {
     display: flex;
-    flex-direction: column; /* Align items in a column to handle header and social icons */
+    flex-direction: column;
     justify-content: center;
     align-items: center;
     height: 100vh;
     margin: 0;
-    background-color: black; /* Default to black background for 404 page */
+    background: linear-gradient(135deg, #ff00cc, #3333ff, #00ffff);
+    background-size: 300% 300%; /* Animate color shift */
+    animation: y2k-gradient 8s ease infinite; /* Smooth gradient animation */
     font-family: 'Press Start 2P', cursive; /* Retro font */
-    color: white; /* White text color */
-    position: relative; /* Ensure the body positions correctly */
-    overflow: hidden; /* Hide any overflow */
-    text-align: center; /* Center text alignment */
+    color: white;
+    text-align: center;
+    overflow: hidden;
 }
+
+/* Y2K gradient animation */
+@keyframes y2k-gradient {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+}
+
+/* Grid pattern overlay */
+.y2k-grid {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: linear-gradient(to right, rgba(255, 255, 255, 0.1) 1px, transparent 1px),
+                      linear-gradient(to bottom, rgba(255, 255, 255, 0.1) 1px, transparent 1px);
+    background-size: 20px 20px; /* Small grid */
+    z-index: 0; /* Ensure it stays behind content */
+}
+
+/* Neon glowing effect on text */
+h1, h2, p {
+    text-shadow: 
+        0 0 10px rgba(255, 255, 255, 0.8),
+        0 0 20px rgba(255, 255, 255, 0.6),
+        0 0 30px rgba(255, 255, 255, 0.4),
+        0 0 40px rgba(255, 255, 255, 0.2);
+}
+
+/* Button styling with metallic look */
+.enter-text {
+    font-size: 28px;
+    color: white;
+    text-decoration: none;
+    font-weight: bold;
+    text-transform: uppercase;
+    position: relative;
+    padding: 10px 20px;
+    text-shadow: 
+        0 0 5px rgba(255, 255, 255, 0.8),
+        0 0 10px rgba(255, 255, 255, 0.6);
+    transition: background 0.3s ease, text-shadow 0.3s ease;
+}
+
+
 
 /* Styling for the text link on the main page */
 .enter-text {
